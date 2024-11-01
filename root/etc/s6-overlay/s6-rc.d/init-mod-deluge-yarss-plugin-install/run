@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bash
+
+# This is an install script that is designed to run after init-mods-package-install
+# so it can take advantage of packages installed
+# init-mods-end depends on this script so that later init and services wait until this script exits
+
+# Clone deluge-yarss-plugin repo
+mkdir -p /usr/src && cd $_
+git clone git clone https://ikari7789@bitbucket.org/ikari7789/deluge-yarss-plugin.git -b feature/update-requirements
+
+# Build egg
+cd deluge-yarss-plugin
+./install_requirements.sh
+python setup.py bdist_egg
+
+# Copy into plugins folder
+s6-setuidgid abc cp ./dist/*.egg /config/plugins/
