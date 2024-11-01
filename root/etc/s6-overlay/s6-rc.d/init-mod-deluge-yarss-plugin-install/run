@@ -15,4 +15,5 @@ python setup.py bdist_egg
 
 # Copy into plugins folder
 s6-setuidgid abc mkdir -p /config/plugins/
+s6-setuidgid abc rm /config/plugins/YaRSS2-*.egg
 s6-setuidgid abc cp ./dist/YaRSS2-*.egg /config/plugins/
