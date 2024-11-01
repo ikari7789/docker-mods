@@ -10,7 +10,7 @@ git clone git clone https://ikari7789@bitbucket.org/ikari7789/deluge-yarss-plugi
 
 # Build egg
 cd deluge-yarss-plugin
-./install_requirements.sh
+sh ./install_requirements.sh
 python setup.py bdist_egg
 
 # Copy into plugins folder
