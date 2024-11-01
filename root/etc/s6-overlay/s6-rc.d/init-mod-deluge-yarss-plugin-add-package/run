@@ -6,7 +6,7 @@
 
 if ! command -v git; then
     echo "**** Adding git and its deps to package install lists ****"
-    echo "git" >> /mod-pip-packages-to-install.list
+    echo "git" >> /mod-repo-packages-to-install.list
 else
     echo "**** git already installed, skipping ****"
 fi
