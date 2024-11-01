@@ -13,7 +13,7 @@ env:
   GITHUB_REPO: "ikari7789/docker-mods" #don't modify
   ENDPOINT: "ikari7789/docker-mods" #don't modify
   BASEIMAGE: "deluge" #replace
-  MODNAME: "yarss-plugin" #replace
+  MODNAME: "ltConfig-plugin" #replace
   MOD_VERSION: ${{ inputs.mod_version }} #don't modify
   MULTI_ARCH: "true" #set to false if not needed
 
