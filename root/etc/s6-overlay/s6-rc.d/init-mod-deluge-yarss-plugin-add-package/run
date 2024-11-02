@@ -10,3 +10,21 @@ if ! command -v git; then
 else
     echo "**** git already installed, skipping ****"
 fi
+
+if ! command -v pip; then
+    echo "**** Adding pip and its deps to package install lists ****"
+    ## Ubuntu
+    if [ -f /usr/bin/apt ]; then
+        echo "\
+            python3 \
+            python3-pip" >> /mod-repo-packages-to-install.list
+    fi
+    # Alpine
+    if [ -f /sbin/apk ]; then
+        echo "\
+            python3 \
+            py3-pip" >> /mod-repo-packages-to-install.list
+    fi
+else
+    echo "**** pip already installed, skipping ****"
+fi
