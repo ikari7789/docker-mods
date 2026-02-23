@@ -10,7 +10,8 @@ git clone https://github.com/ikari7789/deluge-ltconfig.git -b feature/fix-syntax
 
 # Build egg
 cd deluge-ltconfig
-python -m build --wheel
+rm -rf build dist *.egg-info
+python setup.py bdist_egg
 
 # Copy into plugins folder
 s6-setuidgid abc mkdir -p /config/plugins/
