@@ -17,16 +17,27 @@ if ! command -v pip; then
     if [ -f /usr/bin/apt ]; then
         echo "\
             python3 \
-            python3-pip \
-            python3-build" >> /mod-repo-packages-to-install.list
+            python3-pip" >> /mod-repo-packages-to-install.list
     fi
-    # Alpine
+    ## Alpine
     if [ -f /sbin/apk ]; then
         echo "\
             python3 \
-            py3-pip \
-            py3-build" >> /mod-repo-packages-to-install.list
+            py3-pip" >> /mod-repo-packages-to-install.list
     fi
 else
     echo "**** pip already installed, skipping ****"
+fi
+
+# Add required Python packages
+# Ubuntu
+if [ -f /usr/bin/apt ]; then
+    echo "\
+        python3-build" >> /mod-repo-packages-to-install.list
+fi
+
+# Alpine
+if [ -f /sbin/apk ]; then
+    echo "\
+        py3-build" >> /mod-repo-packages-to-install.list
 fi
